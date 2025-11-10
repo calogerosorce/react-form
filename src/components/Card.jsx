@@ -9,19 +9,22 @@ export default function Card({ array }) {
         e.preventDefault()
         if (newTask.length > 1) {
 
-            const newArray = [...task, { id: task.length + 1, title: newTask }]
+
+            //trovare id massimo da quelli presenti e add +1
+
+            let newId = task[task.length - 1].id + 1
+
+
+            const newArray = [...task, { id: newId, title: newTask }]
 
             setTask(newArray)
 
             setNewTask('')
-        } else if (--task.length) {
-
-            const newArray = [{ id: task.length - 1, title: newTask }]
-
-            setTask(newArray)
         } else {
             setError('Insert chars for compiled form')
         }
+
+
 
 
 
@@ -30,7 +33,6 @@ export default function Card({ array }) {
         const removeTask = task.filter((element, index) => index !== i)
 
         setTask(removeTask)
-
 
     }
 
