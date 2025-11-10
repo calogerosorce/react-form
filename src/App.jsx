@@ -19,10 +19,19 @@ function App() {
     title: 'Celebrate!'
   }]
 
+  const [task, setTask] = useState(tasks)
   const [newTask, setNewTask] = useState('')
   function handleSubmit(e) {
     e.preventDefault()
+    if (newTask.length > 1) {
 
+      const newArray = [...task, { id: task.length + 1, title: newTask }]
+
+      setTask(newArray)
+    } else {
+      console.log('error');
+
+    }
   }
 
   return (
@@ -37,7 +46,7 @@ function App() {
             </div>
           </form>
           <ul className='list-group'>
-            {tasks.map(items => (
+            {task.map(items => (
               <li key={items.id} className='list-group-item'>{items.title}</li>
             )
             )}
