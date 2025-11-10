@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Header from './components/Header'
 
 function App() {
 
@@ -36,8 +36,9 @@ function App() {
 
   return (
     <>
+
+      <Header />
       <div className="container  text-center">
-        <h1>Todos List</h1>
         <div className="card p-4">
           <form onSubmit={handleSubmit}>
             <div className="input-group mb-3">
