@@ -12,7 +12,7 @@ export default function Card({ array }) {
 
             //trovare id massimo da quelli presenti e add +1
 
-            let newId = task[task.length - 1].id + 1
+            let newId = task[task.length - 1]?.id + 1
 
 
             const newArray = [...task, { id: newId, title: newTask }]
